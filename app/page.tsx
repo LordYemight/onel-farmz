@@ -2,20 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { 
-  Leaf, 
-  Heart, 
-  Truck, 
-  MapPin, 
-  ArrowRight, 
-  Star, 
-  Shield, 
-  Users, 
-  Award, 
-  Menu, 
-  X, 
-  Instagram, 
-  Mail, 
+import {
+  Leaf,
+  Heart,
+  Truck,
+  MapPin,
+  ArrowRight,
+  Star,
+  Shield,
+  Users,
+  Award,
+  Menu,
+  X,
+  Instagram,
+  Mail,
   Phone,
   ImageOff,
   ChevronRight,
@@ -66,9 +66,9 @@ const useTypewriter = (text: string, speed = 60) => {
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
-      if (i < text.length) { 
-        setDisplay(prev => prev + text.charAt(i)); 
-        i++; 
+      if (i < text.length) {
+        setDisplay(prev => prev + text.charAt(i));
+        i++;
       } else clearInterval(timer);
     }, speed);
     return () => clearInterval(timer);
@@ -91,10 +91,10 @@ const IMAGES = {
   hero: "https://images.unsplash.com/photo-1771856060604-3a697f33ee2f?auto=format&fit=crop&w=1920&q=80",
   about: "https://images.unsplash.com/photo-1660224286794-fc173fa9295c?auto=format&fit=crop&w=1000&q=80",
   products: [
-    "https://images.unsplash.com/photo-1559229873-383d75ba200f?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1756361946794-d7976ff5f765?auto=format&fit=crop&w=800&q=80",
+    "/wholeChicken.png",
+    "/chickenBreast.png",
     "https://images.unsplash.com/photo-1664339307400-9c22e5f44496?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1765252582326-d5768f3325aa?auto=format&fit=crop&w=800&q=80"
+    "/organic.png"
   ]
 };
 
@@ -150,16 +150,16 @@ export default function Page() {
 
           <div className="hidden md:flex items-center gap-8">
             {['Home', 'Produce', 'Our Story', 'Contact'].map((item) => (
-              <a 
-                key={item} 
+              <a
+                key={item}
                 href={`#${item.toLowerCase().replace(' ', '')}`}
                 className="text-sm font-bold uppercase tracking-widest text-stone-800 hover:text-accent transition-colors"
               >
                 {item}
               </a>
             ))}
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               className="bg-secondary text-white px-6 py-3 rounded-full font-bold text-sm hover:brightness-110 transition shadow-lg"
             >
               ORDER NOW
@@ -182,8 +182,8 @@ export default function Page() {
             </button>
             <div className="flex flex-col gap-6">
               {['Home', 'Produce', 'Our Story', 'Contact'].map((item) => (
-                <a 
-                  key={item} 
+                <a
+                  key={item}
                   href={`#${item.toLowerCase().replace(' ', '')}`}
                   className="text-2xl font-heading font-bold text-stone-800"
                   onClick={() => setMenuOpen(false)}
@@ -191,8 +191,8 @@ export default function Page() {
                   {item}
                 </a>
               ))}
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="bg-secondary text-white text-center py-4 rounded-xl font-bold mt-4"
                 onClick={() => setMenuOpen(false)}
               >
@@ -250,7 +250,7 @@ export default function Page() {
       {/* Divider */}
       <div className="py-12 border-y border-stone-100 bg-white overflow-hidden">
         <div className="flex items-center gap-12 animate-marquee whitespace-nowrap">
-          {[1,2,3,4,5,6].map((i) => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <div key={i} className="flex items-center gap-4 text-stone-400 font-bold uppercase tracking-widest text-sm">
               <Shield className="text-secondary" size={16} />
               100% Organic Certified
@@ -302,7 +302,7 @@ export default function Page() {
         <div className="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
           <SafeImage src={IMAGES.about} alt="Farm background" fill className="object-cover grayscale" />
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-secondary font-bold tracking-widest uppercase text-sm">Our Legacy</span>
@@ -313,7 +313,7 @@ export default function Page() {
             <p className="text-stone-400 mt-6 text-lg leading-relaxed">
               We believe in transparency, soil health, and the well-being of our birds, resulting in a product that is not only safer but significantly more flavorful.
             </p>
-            
+
             <div className="grid grid-cols-3 gap-6 mt-12">
               {[
                 { n: "5", l: "Years Organic", i: Award },
@@ -330,7 +330,7 @@ export default function Page() {
               ))}
             </div>
           </div>
-          
+
           <div className="relative aspect-square rounded-[2rem] overflow-hidden border-8 border-white/5">
             <SafeImage src={IMAGES.about} alt="The Farm" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent" />
@@ -344,12 +344,12 @@ export default function Page() {
           <h2 className="font-heading text-4xl font-black text-stone-900">Loved by 18K+ Minna Locals</h2>
           <p className="text-stone-500 mt-4">Real feedback from our farm-to-table community.</p>
         </div>
-        
+
         <div className="flex w-[200%] gap-8 animate-slide-left">
           {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
             <div key={i} className="w-[400px] shrink-0 bg-white p-10 rounded-3xl shadow-sm border border-stone-100 flex flex-col">
               <div className="flex text-secondary mb-6">
-                {[1,2,3,4,5].map(n => <Star key={n} fill="currentColor" size={16} />)}
+                {[1, 2, 3, 4, 5].map(n => <Star key={n} fill="currentColor" size={16} />)}
               </div>
               <Quote className="text-stone-100 mb-4" size={40} />
               <p className="text-stone-700 italic text-lg leading-relaxed mb-8">"{t.text}"</p>
@@ -375,7 +375,7 @@ export default function Page() {
             <p className="text-stone-500 text-lg mb-10 leading-relaxed">
               We’re located in the heart of Minna. Whether you want a single chicken or a bulk supply for your restaurant, we’re ready to serve you.
             </p>
-            
+
             <div className="space-y-6">
               {[
                 { icon: MapPin, text: BRAND.region === "nigeria" ? "David mark road, Minna, Niger state, Nigeria" : "Main Street, Minna" },
@@ -452,7 +452,7 @@ export default function Page() {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-bold mb-8 uppercase tracking-widest text-sm text-secondary">Quick Links</h4>
             <ul className="space-y-4 text-stone-400">
@@ -462,7 +462,7 @@ export default function Page() {
               <li><a href="#contact" className="hover:text-white transition">Order Now</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-bold mb-8 uppercase tracking-widest text-sm text-secondary">Newsletter</h4>
             <p className="text-stone-400 text-sm mb-6">Get organic recipes and farm updates directly in your inbox.</p>
@@ -472,7 +472,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-stone-500 text-sm">
             © {new Date().getFullYear()} Onel Farmz. All rights reserved.
@@ -490,12 +490,11 @@ export default function Page() {
 function SectionWrapper({ children, className, id }: { children: React.ReactNode, className?: string, id: string }) {
   const { ref, isVisible } = useScrollReveal();
   return (
-    <section 
+    <section
       id={id}
       ref={ref}
-      className={`py-24 px-6 transition-all duration-1000 ${className} ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+      className={`py-24 px-6 transition-all duration-1000 ${className} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
     >
       <div className="max-w-7xl mx-auto">
         {children}
