@@ -1,29 +1,23 @@
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import type { Metadata } from "next";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
-const heading = Cormorant_Garamond({ 
-  subsets: ['latin'], 
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-heading' 
-});
-const body = Inter({ 
-  subsets: ['latin'], 
-  variable: '--font-body' 
-});
+const heading = Outfit({ subsets: ["latin"], variable: "--font-heading" });
+const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
-export const metadata = {
-  title: "Onel Farmz | Premium Organic Broiler Chickens",
-  description: "Fresh, ethically-raised poultry from Minna to Lagos.",
+export const metadata: Metadata = {
+  title: "Onel Farmz | 80% Organic Broiler Chickens",
+  description: "The premier source for ethically-raised, premium organic broiler chickens in Minna, Niger State.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en">
-      <body className={`${heading.variable} ${body.variable} font-sans bg-primary selection:bg-secondary selection:text-white`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${heading.variable} ${body.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
